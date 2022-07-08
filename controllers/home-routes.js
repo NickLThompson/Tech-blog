@@ -6,11 +6,11 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   Post.findAll({
-    attributes: ["id", "title", "content", "created_at"],
+    attributes: ["id", "title", "body"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -49,11 +49,11 @@ router.get("/post/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "content", "title", "created_at"],
+    attributes: ["id", "body", "title"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -84,7 +84,7 @@ router.get("/posts-comments", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "content", "title", "created_at"],
+    attributes: ["id", "Body", "title", "created_at"],
     include: [
       {
         model: Comment,
