@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", withAuth, (req, res) => {
     Comment.update(
         {
-            comment_text: req.body.comment_text,
+            comment: req.body.comment,
         },
         {
             where: {
@@ -71,12 +71,12 @@ router.put("/:id", withAuth, (req, res) => {
     
     // update a comment
     router.post("/", withAuth, (req, res) => {
-        console.log(req.body.post_id, req.body.user_id, req.body.comment_text);
+        console.log(req.body.post_id, req.body.user_id, req.body.comment);
         if (req.session) {
             Comment.create({
                 post_id: req.body.post_id,
                 user_id: req.session.user_id,
-                comment_text: req.body.comment_text,
+                comment: req.body.comment,
             })
             .then((dbCommentInfo) => res.json(dbCommentInfo))
             .catch((err) => {

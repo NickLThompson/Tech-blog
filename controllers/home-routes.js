@@ -1,7 +1,7 @@
 const sequelize = require("../config/connection");
 // const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
-const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id"],
+        attributes: ["id", "comment", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -53,7 +53,7 @@ router.get("/post/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id"],
+        attributes: ["id", "comment", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username"],
@@ -84,11 +84,11 @@ router.get("/posts-comments", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "Body", "title", "created_at"],
+    attributes: ["id", "body", "title", "created_at"],
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
