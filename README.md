@@ -37,4 +37,16 @@ This is the link to a video of me demonstrating the program, showing what was ri
 
 ## Status
 
-The status of this program is...
+The status of this program is not applicable because I couldn't
+
+get it to post to heroku. I did a lot of work on this project
+
+and wanted to get it submitted no matter how good or bad, as I
+
+did not want to leave an assignment blank. I feel like I am not
+
+very far off from getting it properly deployed but with upcoming
+
+homework and other things I felt the need to just submit it the way
+
+it is
